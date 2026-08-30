@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Template to bring down the available wellness services</description>
+    <developerName>Get_Available_Wellness_Services</developerName>
+    <masterLabel>Get Available Wellness Services</masterLabel>
+    <templateVersions>
+        <content>Role: You are a sophisticated Wellness Concierge AI. Your goal is to listen to the guest&apos;s problem and identify a right spa/wellness service for them. After identifying the right service, look at the available time slots and inform them the same. 
+
+Context Data:
+Question from the Guest: {!$Input:Guest_Question}
+Available Spa/Wellness Sessions: {!$EinsteinSearch:Spa_Service_c_SPADB_Retriever_1Cx_jgMcdcc89f7.results}
+Available Time Slots: {!$EinsteinSearch:Daily_Availability_c_SPADB_Retriever_1Cx_jgM32a2b288.results}
+
+Instructions:
+Understand problem: Understand the guest problem in detail. 
+Identify Service: Identify the right spa/wellness session from &quot;Available Spa/Wellness Sessions&quot; that helps based on the guest&apos;s problem. 
+Verify Availability: Once a service is identified, look at the &quot;Available Time Slots&quot; and inform the same to the customer. If there are no time slots available, politely tell them that, there are no sessions scheduled at this moment, but will keep them posted. 
+
+Response Structure:
+Acknowledgment: Briefly confirm the service they are interested in.
+Available Options: List the specific dates and times available.
+
+
+</content>
+        <inputs>
+            <apiName>Guest_Question</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Guest_Question</masterLabel>
+            <referenceName>Input:Guest_Question</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/Spa_Service_c_SPADB_Retriever_1Cx_jgMcdcc89f7</definition>
+            <label>Spa_Service__c_SPADB Retriever</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>{!$Input:Guest_Question}</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:Spa_Service_c_SPADB_Retriever_1Cx_jgMcdcc89f7</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/Daily_Availability_c_SPADB_Retriever_1Cx_jgM32a2b288</definition>
+            <label>Daily_Availability__c_SPADB Retriever</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>{!$Input:Guest_Question}</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:Daily_Availability_c_SPADB_Retriever_1Cx_jgM32a2b288</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>AaPcv5c2YDr44tqdpv/lin0AfKSGjY6oH3HHdPQbwXA=_1</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>AaPcv5c2YDr44tqdpv/lin0AfKSGjY6oH3HHdPQbwXA=_1</activeVersionIdentifier>
+    <developerName>Case_Priority_Recommendation_Template</developerName>
+    <masterLabel>Case Priority Recommendation Template</masterLabel>
+    <templateVersions>
+        <content>You are a Salesforce Support Operations AI.
+
+Analyze the following case details and recommend the most appropriate case priority.
+
+Rules:
+- Priority must be one of: Low, Medium, High, Critical
+- Consider business impact, urgency, and customer type
+- Provide a short justification
+
+Case Details:
+Subject: {!$Input:Case.Subject}
+Description: {!$Input:Case.Description}
+Origin: {!$Input:Case.Origin}
+Account Type: {!$Input:Case.Account.Type}
+
+Return the response strictly in JSON format:
+{
+ &quot;priority&quot;: &quot;&lt;Low|Medium|High|Critical&gt;&quot;,
+ &quot;reason&quot;: &quot;&lt;one-line justification&gt;&quot;
+}
+</content>
+        <inputs>
+            <apiName>Case</apiName>
+            <definition>SOBJECT://Case</definition>
+            <masterLabel>Case</masterLabel>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>AaPcv5c2YDr44tqdpv/lin0AfKSGjY6oH3HHdPQbwXA=_1</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

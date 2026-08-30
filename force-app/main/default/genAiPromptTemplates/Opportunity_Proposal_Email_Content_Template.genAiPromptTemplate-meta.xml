@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>AaPcv5c2YDr44tqdpv/lin0AfKSGjY6oH3HHdPQbwXA=_1</activeVersionIdentifier>
+    <developerName>Opportunity_Proposal_Email_Content_Template</developerName>
+    <masterLabel>Opportunity Proposal Email Content Template</masterLabel>
+    <relatedEntity>Opportunity</relatedEntity>
+    <relatedField>Opportunity.Draft_Email_Content__c</relatedField>
+    <templateVersions>
+        <content>You are an expert sales representative at Soft Innovas. You do work on bunch of opportunities everyday. As part of your job, you do write professional emails to the customers for closing the opportunities. 
+
+Help me write a follow-up email about the customer&apos;s interest on the current opportunity. The email has to be fully professional, emphaise the urgency based on the close date. Consider opportunity amount, close date and stage while preparing the email body. If the customer company has good annual revenue, the email should impress them so that we can grab that deal. 
+
+Here is the information about the opportunity &amp; the company:
+Opportunity Name: {!$Input:Opportunity.Name}
+Company Name: {!$Input:Opportunity.Account.Name}
+Opportunity Amount: {!$Input:Opportunity.Amount}
+Close Date: {!$Input:Opportunity.CloseDate}
+Stage Name: {!$Input:Opportunity.StageName}
+Annual Revenue: {!$Input:Opportunity.Account.AnnualRevenue}
+
+Make the email fully professional. Limit the email body to 2 paragraphas / 500 words. 
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <referenceName>Input:Opportunity</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>AaPcv5c2YDr44tqdpv/lin0AfKSGjY6oH3HHdPQbwXA=_1</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__fieldCompletion</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>AaPcv5c2YDr44tqdpv/lin0AfKSGjY6oH3HHdPQbwXA=_1</activeVersionIdentifier>
+    <description>Generates detailed description of the account</description>
+    <developerName>Generate_Account_Detailed_Description</developerName>
+    <masterLabel>Generate Account Detailed Description</masterLabel>
+    <relatedEntity>Account</relatedEntity>
+    <relatedField>Account.DetailedDescription__c</relatedField>
+    <templateVersions>
+        <content>You are the customer relationship manager and you have full understanding about the given account: {!$Input:Account.Name}. Generate a detailed summary about the account. Also consider summarizing the contacts, cases &amp; opportunities of the account. 
+
+Account: {!$Input:Account.Name}
+Description: {!$Input:Account.Description}
+Annual Revenue: {!$Input:Account.AnnualRevenue}
+Rating: {!$Input:Account.Rating}
+Number of Employees: {!$Input:Account.NumberOfEmployees}
+Contacts: {!$RelatedList:Account.Contacts.Records}
+Cases: {!$RelatedList:Account.Cases.Records}
+Opportunities: {!$RelatedList:Account.Opportunities.Records}
+
+Please format the response into 4 section. The first should talk about the account details. Second section is about Contacts. Third about Cases and last about Opportunitites.Do not exceed the description than 130,000 characters. 
+
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Account</definition>
+            <referenceName>Input:Account</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getRelatedList</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>parentRecordId</parameterName>
+                <valueExpression>{!$Input:Account.Id}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>relatedListName</parameterName>
+                <valueExpression>Contacts</valueExpression>
+            </parameters>
+            <referenceName>RelatedList:Account.Contacts.Records</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>invocable://getRelatedList</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>parentRecordId</parameterName>
+                <valueExpression>{!$Input:Account.Id}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>relatedListName</parameterName>
+                <valueExpression>Cases</valueExpression>
+            </parameters>
+            <referenceName>RelatedList:Account.Cases.Records</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>invocable://getRelatedList</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>parentRecordId</parameterName>
+                <valueExpression>{!$Input:Account.Id}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>relatedListName</parameterName>
+                <valueExpression>Opportunities</valueExpression>
+            </parameters>
+            <referenceName>RelatedList:Account.Opportunities.Records</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>AaPcv5c2YDr44tqdpv/lin0AfKSGjY6oH3HHdPQbwXA=_1</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__fieldCompletion</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

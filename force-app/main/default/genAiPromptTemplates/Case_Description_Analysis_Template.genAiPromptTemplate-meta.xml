@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>AaPcv5c2YDr44tqdpv/lin0AfKSGjY6oH3HHdPQbwXA=_2</activeVersionIdentifier>
+    <developerName>Case_Description_Analysis_Template</developerName>
+    <masterLabel>Case Description Analysis Template</masterLabel>
+    <templateVersions>
+        <content>You are a customer support specialist.
+
+Analyze the case description carefully to understand:
+- The customer’s tone (calm, frustrated, angry, urgent)
+- The urgency and potential business impact
+
+Case Description: {!$Input:Case.Description}
+
+Based on your analysis, determine the case priority using only one of the following values: Low, Medium, High
+
+Also provide a short triage note (1–2 sentences) explaining why this priority was chosen, referring to urgency, tone, or impact.
+
+Output format:
+Priority: &lt;Low | Medium | High&gt;
+Triage Note: &lt;brief explanation&gt;
+
+</content>
+        <inputs>
+            <apiName>Case</apiName>
+            <definition>SOBJECT://Case</definition>
+            <masterLabel>Case</masterLabel>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>AaPcv5c2YDr44tqdpv/lin0AfKSGjY6oH3HHdPQbwXA=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a customer support specialist.
+
+Analyze the case description carefully to understand:
+- The customer’s tone (calm, frustrated, angry, urgent)
+- The urgency and potential business impact
+
+Case Description: {!$Input:Case.Description}
+
+Based on your analysis, determine the case priority using only one of the following values: Low, Medium, High
+
+Also provide a short triage note (1–2 sentences) explaining why this priority was chosen, referring to urgency, tone, or impact. Limit the total response to 250 characters only. 
+
+Output format:
+Priority: &lt;Low | Medium | High&gt;
+Triage Note: &lt;brief explanation&gt;
+
+</content>
+        <inputs>
+            <apiName>Case</apiName>
+            <definition>SOBJECT://Case</definition>
+            <masterLabel>Case</masterLabel>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>AaPcv5c2YDr44tqdpv/lin0AfKSGjY6oH3HHdPQbwXA=_2</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

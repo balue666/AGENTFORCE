@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CoverageType__c</fullName>
+    <label>Coverage Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Motor / Vehicle Insurance</fullName>
+                <default>false</default>
+                <label>Motor / Vehicle Insurance</label>
+            </value>
+            <value>
+                <fullName>Health Insurance</fullName>
+                <default>false</default>
+                <label>Health Insurance</label>
+            </value>
+            <value>
+                <fullName>Life Insurance</fullName>
+                <default>false</default>
+                <label>Life Insurance</label>
+            </value>
+            <value>
+                <fullName>Property / Home Insurance</fullName>
+                <default>false</default>
+                <label>Property / Home Insurance</label>
+            </value>
+            <value>
+                <fullName>Travel Insurance</fullName>
+                <default>false</default>
+                <label>Travel Insurance</label>
+            </value>
+            <value>
+                <fullName>Commercial / Business Insurance</fullName>
+                <default>false</default>
+                <label>Commercial / Business Insurance</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

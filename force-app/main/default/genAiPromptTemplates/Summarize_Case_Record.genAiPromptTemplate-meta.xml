@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>AaPcv5c2YDr44tqdpv/lin0AfKSGjY6oH3HHdPQbwXA=_1</activeVersionIdentifier>
+    <description>This is template summarizes the given case record</description>
+    <developerName>Summarize_Case_Record</developerName>
+    <masterLabel>Summarize Case Record</masterLabel>
+    <relatedEntity>Case</relatedEntity>
+    <templateVersions>
+        <content>You are a case support agent. You need to summarize given case by using the following details: 
+
+Account Name: {!$Input:Case.Account.Name}
+Contact Name: {!$Input:Case.Contact.Name}
+Subject: {!$Input:Case.Subject}
+Description: {!$Input:Case.Description}
+Priority: {!$Input:Case.Priority}
+Origin: {!$Input:Case.Origin}
+Case Comments: {!$Input:Case.Comments}
+
+Limit the summary to 4 sentenses maximum. Try to mention all relavant details. Do not take or assume any other details apart from what I have mentioned in this prompt. 
+</content>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Case</definition>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>AaPcv5c2YDr44tqdpv/lin0AfKSGjY6oH3HHdPQbwXA=_1</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__recordSummary</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

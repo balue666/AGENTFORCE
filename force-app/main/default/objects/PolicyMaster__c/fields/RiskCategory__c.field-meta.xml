@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RiskCategory__c</fullName>
+    <label>Risk Category</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>CoverageType__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Comprehensive Coverage</fullName>
+                <default>false</default>
+                <label>Comprehensive Coverage</label>
+            </value>
+            <value>
+                <fullName>Third-Party Liability</fullName>
+                <default>false</default>
+                <label>Third-Party Liability</label>
+            </value>
+            <value>
+                <fullName>Collision Coverage</fullName>
+                <default>false</default>
+                <label>Collision Coverage</label>
+            </value>
+            <value>
+                <fullName>Personal Accident Cover</fullName>
+                <default>false</default>
+                <label>Personal Accident Cover</label>
+            </value>
+            <value>
+                <fullName>Theft Protection</fullName>
+                <default>false</default>
+                <label>Theft Protection</label>
+            </value>
+            <value>
+                <fullName>Fire &amp; Natural Calamity Cover</fullName>
+                <default>false</default>
+                <label>Fire &amp; Natural Calamity Cover</label>
+            </value>
+            <value>
+                <fullName>Own Damage Only</fullName>
+                <default>false</default>
+                <label>Own Damage Only</label>
+            </value>
+            <value>
+                <fullName>Zero Depreciation Cover</fullName>
+                <default>false</default>
+                <label>Zero Depreciation Cover</label>
+            </value>
+            <value>
+                <fullName>Engine Protection</fullName>
+                <default>false</default>
+                <label>Engine Protection</label>
+            </value>
+            <value>
+                <fullName>Roadside Assistance</fullName>
+                <default>false</default>
+                <label>Roadside Assistance</label>
+            </value>
+            <value>
+                <fullName>Individual Health Cover</fullName>
+                <default>false</default>
+                <label>Individual Health Cover</label>
+            </value>
+            <value>
+                <fullName>Family Floater</fullName>
+                <default>false</default>
+                <label>Family Floater</label>
+            </value>
+            <value>
+                <fullName>Group Health Policy</fullName>
+                <default>false</default>
+                <label>Group Health Policy</label>
+            </value>
+            <value>
+                <fullName>Critical Illness Cover</fullName>
+                <default>false</default>
+                <label>Critical Illness Cover</label>
+            </value>
+            <value>
+                <fullName>Accident &amp; Disability Cover</fullName>
+                <default>false</default>
+                <label>Accident &amp; Disability Cover</label>
+            </value>
+            <value>
+                <fullName>Maternity Cover</fullName>
+                <default>false</default>
+                <label>Maternity Cover</label>
+            </value>
+            <value>
+                <fullName>Hospital Cash Cover</fullName>
+                <default>false</default>
+                <label>Hospital Cash Cover</label>
+            </value>
+            <value>
+                <fullName>Top-Up / Super Top-Up</fullName>
+                <default>false</default>
+                <label>Top-Up / Super Top-Up</label>
+            </value>
+            <value>
+                <fullName>OPD (Outpatient Department) Cover</fullName>
+                <default>false</default>
+                <label>OPD (Outpatient Department) Cover</label>
+            </value>
+            <value>
+                <fullName>International Medical Coverage</fullName>
+                <default>false</default>
+                <label>International Medical Coverage</label>
+            </value>
+            <value>
+                <fullName>Term Life Cover</fullName>
+                <default>false</default>
+                <label>Term Life Cover</label>
+            </value>
+            <value>
+                <fullName>Whole Life Cover</fullName>
+                <default>false</default>
+                <label>Whole Life Cover</label>
+            </value>
+            <value>
+                <fullName>Endowment Policy</fullName>
+                <default>false</default>
+                <label>Endowment Policy</label>
+            </value>
+            <value>
+                <fullName>Unit Linked Insurance Plan (ULIP)</fullName>
+                <default>false</default>
+                <label>Unit Linked Insurance Plan (ULIP)</label>
+            </value>
+            <value>
+                <fullName>Money Back Policy</fullName>
+                <default>false</default>
+                <label>Money Back Policy</label>
+            </value>
+            <value>
+                <fullName>Group Life Insurance</fullName>
+                <default>false</default>
+                <label>Group Life Insurance</label>
+            </value>
+            <value>
+                <fullName>Child Education Plan</fullName>
+                <default>false</default>
+                <label>Child Education Plan</label>
+            </value>
+            <value>
+                <fullName>Retirement / Pension Plan</fullName>
+                <default>false</default>
+                <label>Retirement / Pension Plan</label>
+            </value>
+            <value>
+                <fullName>Mortgage Protection Cover</fullName>
+                <default>false</default>
+                <label>Mortgage Protection Cover</label>
+            </value>
+            <value>
+                <fullName>Building Structure Cover</fullName>
+                <default>false</default>
+                <label>Building Structure Cover</label>
+            </value>
+            <value>
+                <fullName>Contents / Household Items Cover</fullName>
+                <default>false</default>
+                <label>Contents / Household Items Cover</label>
+            </value>
+            <value>
+                <fullName>Fire &amp; Allied Perils Cover</fullName>
+                <default>false</default>
+                <label>Fire &amp; Allied Perils Cover</label>
+            </value>
+            <value>
+                <fullName>Theft &amp; Burglary Cover</fullName>
+                <default>false</default>
+                <label>Theft &amp; Burglary Cover</label>
+            </value>
+            <value>
+                <fullName>Earthquake / Natural Disaster Cover</fullName>
+                <default>false</default>
+                <label>Earthquake / Natural Disaster Cover</label>
+            </value>
+            <value>
+                <fullName>Tenant’s Liability Cover</fullName>
+                <default>false</default>
+                <label>Tenant’s Liability Cover</label>
+            </value>
+            <value>
+                <fullName>Landlord’s Insurance</fullName>
+                <default>false</default>
+                <label>Landlord’s Insurance</label>
+            </value>
+            <value>
+                <fullName>Loss of Rent Cover</fullName>
+                <default>false</default>
+                <label>Loss of Rent Cover</label>
+            </value>
+            <value>
+                <fullName>Domestic Travel Cover</fullName>
+                <default>false</default>
+                <label>Domestic Travel Cover</label>
+            </value>
+            <value>
+                <fullName>International Travel Cover</fullName>
+                <default>false</default>
+                <label>International Travel Cover</label>
+            </value>
+            <value>
+                <fullName>Medical Emergency Cover</fullName>
+                <default>false</default>
+                <label>Medical Emergency Cover</label>
+            </value>
+            <value>
+                <fullName>Trip Cancellation / Delay Cover</fullName>
+                <default>false</default>
+                <label>Trip Cancellation / Delay Cover</label>
+            </value>
+            <value>
+                <fullName>Baggage Loss / Delay Cover</fullName>
+                <default>false</default>
+                <label>Baggage Loss / Delay Cover</label>
+            </value>
+            <value>
+                <fullName>Flight Accident Cover</fullName>
+                <default>false</default>
+                <label>Flight Accident Cover</label>
+            </value>
+            <value>
+                <fullName>Personal Liability Abroad</fullName>
+                <default>false</default>
+                <label>Personal Liability Abroad</label>
+            </value>
+            <value>
+                <fullName>Commercial Property Coverage</fullName>
+                <default>false</default>
+                <label>Commercial Property Coverage</label>
+            </value>
+            <value>
+                <fullName>General Liability Coverage</fullName>
+                <default>false</default>
+                <label>General Liability Coverage</label>
+            </value>
+            <value>
+                <fullName>Product Liability Coverage</fullName>
+                <default>false</default>
+                <label>Product Liability Coverage</label>
+            </value>
+            <value>
+                <fullName>Professional Indemnity</fullName>
+                <default>false</default>
+                <label>Professional Indemnity</label>
+            </value>
+            <value>
+                <fullName>Workers’ Compensation</fullName>
+                <default>false</default>
+                <label>Workers’ Compensation</label>
+            </value>
+            <value>
+                <fullName>Directors &amp; Officers (D&amp;O) Liability</fullName>
+                <default>false</default>
+                <label>Directors &amp; Officers (D&amp;O) Liability</label>
+            </value>
+            <value>
+                <fullName>Cyber Risk Cover</fullName>
+                <default>false</default>
+                <label>Cyber Risk Cover</label>
+            </value>
+            <value>
+                <fullName>Business Interruption Cover</fullName>
+                <default>false</default>
+                <label>Business Interruption Cover</label>
+            </value>
+            <value>
+                <fullName>Marine / Cargo Insurance</fullName>
+                <default>false</default>
+                <label>Marine / Cargo Insurance</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Motor / Vehicle Insurance</controllingFieldValue>
+            <valueName>Comprehensive Coverage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Motor / Vehicle Insurance</controllingFieldValue>
+            <valueName>Third-Party Liability</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Motor / Vehicle Insurance</controllingFieldValue>
+            <valueName>Collision Coverage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Motor / Vehicle Insurance</controllingFieldValue>
+            <valueName>Personal Accident Cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Motor / Vehicle Insurance</controllingFieldValue>
+            <valueName>Theft Protection</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Motor / Vehicle Insurance</controllingFieldValue>
+            <valueName>Fire &amp; Natural Calamity Cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Motor / Vehicle Insurance</controllingFieldValue>
+            <valueName>Own Damage Only</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Motor / Vehicle Insurance</controllingFieldValue>
+            <valueName>Zero Depreciation Cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Motor / Vehicle Insurance</controllingFieldValue>
+            <valueName>Engine Protection</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Motor / Vehicle Insurance</controllingFieldValue>
+            <valueName>Roadside Assistance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Health Insurance</controllingFieldValue>
+            <valueName>Individual Health Cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Health Insurance</controllingFieldValue>
+            <valueName>Family Floater</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Health Insurance</controllingFieldValue>
+            <valueName>Group Health Policy</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Health Insurance</controllingFieldValue>
+            <valueName>Critical Illness Cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Health Insurance</controllingFieldValue>
+            <valueName>Accident &amp; Disability Cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Health Insurance</controllingFieldValue>
+            <valueName>Maternity Cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Health Insurance</controllingFieldValue>
+            <valueName>Hospital Cash Cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Health Insurance</controllingFieldValue>
+            <valueName>Top-Up / Super Top-Up</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Health Insurance</controllingFieldValue>
+            <valueName>OPD (Outpatient Department) Cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Health Insurance</controllingFieldValue>
+            <valueName>International Medical Coverage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Life Insurance</controllingFieldValue>
+            <valueName>Term Life Cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Life Insurance</controllingFieldValue>
+            <valueName>Whole Life Cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Life Insurance</controllingFieldValue>
+            <valueName>Endowment Policy</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Life Insurance</controllingFieldValue>
+            <valueName>Unit Linked Insurance Plan (ULIP)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Life Insurance</controllingFieldValue>
+            <valueName>Money Back Policy</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Life Insurance</controllingFieldValue>
+            <valueName>Group Life Insurance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Life Insurance</controllingFieldValue>
+            <valueName>Child Education Plan</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Life Insurance</controllingFieldValue>
+            <valueName>Retirement / Pension Plan</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Life Insurance</controllingFieldValue>
+            <valueName>Mortgage Protection Cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Property / Home Insurance</controllingFieldValue>
+            <valueName>Building Structure Cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Property / Home Insurance</controllingFieldValue>
+            <valueName>Contents / Household Items Cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Property / Home Insurance</controllingFieldValue>
+            <valueName>Fire &amp; Allied Perils Cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Property / Home Insurance</controllingFieldValue>
+            <valueName>Theft &amp; Burglary Cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Property / Home Insurance</controllingFieldValue>
+            <valueName>Earthquake / Natural Disaster Cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Property / Home Insurance</controllingFieldValue>
+            <valueName>Tenant’s Liability Cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Property / Home Insurance</controllingFieldValue>
+            <valueName>Landlord’s Insurance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Property / Home Insurance</controllingFieldValue>
+            <valueName>Loss of Rent Cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel Insurance</controllingFieldValue>
+            <valueName>Domestic Travel Cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel Insurance</controllingFieldValue>
+            <valueName>International Travel Cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel Insurance</controllingFieldValue>
+            <valueName>Medical Emergency Cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel Insurance</controllingFieldValue>
+            <valueName>Trip Cancellation / Delay Cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel Insurance</controllingFieldValue>
+            <valueName>Baggage Loss / Delay Cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel Insurance</controllingFieldValue>
+            <valueName>Flight Accident Cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Travel Insurance</controllingFieldValue>
+            <valueName>Personal Liability Abroad</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Commercial / Business Insurance</controllingFieldValue>
+            <valueName>Commercial Property Coverage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Commercial / Business Insurance</controllingFieldValue>
+            <valueName>General Liability Coverage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Commercial / Business Insurance</controllingFieldValue>
+            <valueName>Product Liability Coverage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Commercial / Business Insurance</controllingFieldValue>
+            <valueName>Professional Indemnity</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Commercial / Business Insurance</controllingFieldValue>
+            <valueName>Workers’ Compensation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Commercial / Business Insurance</controllingFieldValue>
+            <valueName>Directors &amp; Officers (D&amp;O) Liability</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Commercial / Business Insurance</controllingFieldValue>
+            <valueName>Cyber Risk Cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Commercial / Business Insurance</controllingFieldValue>
+            <valueName>Business Interruption Cover</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Commercial / Business Insurance</controllingFieldValue>
+            <valueName>Marine / Cargo Insurance</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

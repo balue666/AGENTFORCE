@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Assign the result into output</description>
+        <name>Populate_Claim_Log_Records</name>
+        <label>Populate Claim Log Records</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>varClaimLogRecords</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Claim_Logs</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <description>Get all the recent claim log records based on the given claim id</description>
+    <environments>Default</environments>
+    <interviewLabel>Get Recent Claim Log Details {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Get Recent Claim Log Details</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>All claim logs under the given claim id</description>
+        <name>Get_Claim_Logs</name>
+        <label>Get Claim Logs</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Populate_Claim_Log_Records</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Claim__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varClaimId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>ClaimLog__c</object>
+        <sortField>Timestamp__c</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Claim_Logs</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Claim 18 digit record id</description>
+        <name>varClaimId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>All the log records for the given claim</description>
+        <name>varClaimLogRecords</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <objectType>ClaimLog__c</objectType>
+    </variables>
+</Flow>

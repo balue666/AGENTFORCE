@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>AaPcv5c2YDr44tqdpv/lin0AfKSGjY6oH3HHdPQbwXA=_1</activeVersionIdentifier>
+    <developerName>Case_Sentiment_Analysis_Template</developerName>
+    <masterLabel>Case Sentiment Analysis Template</masterLabel>
+    <templateVersions>
+        <content>You are a customer sentiment analysis engine.
+
+Analyze the customer message below and determine the sentiment.
+
+Rules:
+- Sentiment must be Positive, Neutral, or Negative
+- Provide a confidence score between 0 and 1
+
+Customer Message:
+{!$Input:Case.Description}
+
+Return the response strictly in JSON format:
+{
+ &quot;sentiment&quot;: &quot;&lt;Positive|Neutral|Negative&gt;&quot;,
+ &quot;confidence&quot;: &lt;decimal between 0 and 1&gt;
+}
+</content>
+        <inputs>
+            <apiName>Case</apiName>
+            <definition>SOBJECT://Case</definition>
+            <masterLabel>Case</masterLabel>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>AaPcv5c2YDr44tqdpv/lin0AfKSGjY6oH3HHdPQbwXA=_1</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

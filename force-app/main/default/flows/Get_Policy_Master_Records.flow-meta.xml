@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Populate the result</description>
+        <name>Populate_Policy_Masters</name>
+        <label>Populate Policy Masters</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>varPolicyMasters</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Policy_Masters</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <description>Get all policy master records matches the given coverage type</description>
+    <environments>Default</environments>
+    <interviewLabel>Get Policy Master Records {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Get Policy Master Records</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Get all the policy master records matching with the given coverage type</description>
+        <name>Get_Policy_Masters</name>
+        <label>Get Policy Masters</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Populate_Policy_Masters</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>CoverageType__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varCoverageType</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>PolicyMaster__c</object>
+        <sortField>Name</sortField>
+        <sortOrder>Asc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Policy_Masters</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Coverage Type inputted by the customer</description>
+        <name>varCoverageType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>All policy master records marching with the given input coverage type</description>
+        <name>varPolicyMasters</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <objectType>PolicyMaster__c</objectType>
+    </variables>
+</Flow>

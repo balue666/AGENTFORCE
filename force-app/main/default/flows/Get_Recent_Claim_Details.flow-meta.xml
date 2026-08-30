@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Collect all active policy ids</description>
+        <name>Collect_Policy_Ids</name>
+        <label>Collect Policy Ids</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>varPolicyIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_on_Active_Policies.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_on_Active_Policies</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Assign the result into ouput</description>
+        <name>Populate_Claim_Records</name>
+        <label>Populate Claim Records</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>varClaimRecords</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Active_Claims</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <description>Get all the recent claim records based on the given customer 18 digit record id</description>
+    <environments>Default</environments>
+    <interviewLabel>Get Recent Claim Details {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Get Recent Claim Details</label>
+    <loops>
+        <name>Loop_on_Active_Policies</name>
+        <label>Loop on Active Policies</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>Get_Active_Policies</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Collect_Policy_Ids</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Get_Active_Claims</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Get all the active claim records for the given customer id</description>
+        <name>Get_Active_Claims</name>
+        <label>Get Active Claims</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Populate_Claim_Records</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Policy__c</field>
+            <operator>In</operator>
+            <value>
+                <elementReference>varPolicyIds</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Claim__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Identify all the active policies for the given customer</description>
+        <name>Get_Active_Policies</name>
+        <label>Get Active Policies</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_on_Active_Policies</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Customer__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varCustomerId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>ExpiryDate__c</field>
+            <operator>GreaterThanOrEqualTo</operator>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Policy__c</object>
+        <queriedFields>Id</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Active_Policies</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>All active claim records for the given customer</description>
+        <name>varClaimRecords</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Claim__c</objectType>
+    </variables>
+    <variables>
+        <description>Customer&apos;s 18 digit salesforce record id</description>
+        <name>varCustomerId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Collection to store policy ids</description>
+        <name>varPolicyIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>AaPcv5c2YDr44tqdpv/lin0AfKSGjY6oH3HHdPQbwXA=_1</activeVersionIdentifier>
+    <description>Template to bring down the all available recreation sessions</description>
+    <developerName>Available_Recreation_Events</developerName>
+    <masterLabel>Available Recreation Events</masterLabel>
+    <templateVersions>
+        <content>Try to understand the question from the customer: {!$Input:Question}
+
+Answer the customer by understanding the data: {!$EinsteinSearch:RecreationEvent_c_SIExt_Retriever_1Cx_jgM96db8690.results}
+
+While analyzing and answering the customer, please follow the below instructions.
+
+Instructions:
+- Maintain a casual tone. 
+- Display the data in a tabular format / reable format. 
+- In case there are no recreaion events matching the customer&apos;s query, mention that &quot;There are no events matching your criteria, but we may come up with a few events soon. Stay tuned!&quot;
+
+</content>
+        <inputs>
+            <apiName>Question</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Question</masterLabel>
+            <referenceName>Input:Question</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/RecreationEvent_c_SIExt_Retriever_1Cx_jgM96db8690</definition>
+            <label>RecreationEvent__c_SIExt Retriever</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>{!$Input:Question}</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:RecreationEvent_c_SIExt_Retriever_1Cx_jgM96db8690</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>AaPcv5c2YDr44tqdpv/lin0AfKSGjY6oH3HHdPQbwXA=_1</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

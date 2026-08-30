@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>AaPcv5c2YDr44tqdpv/lin0AfKSGjY6oH3HHdPQbwXA=_1</activeVersionIdentifier>
+    <description>Generates feedback from any local language into English</description>
+    <developerName>Generate_English_Feedback</developerName>
+    <masterLabel>Generate English Feedback</masterLabel>
+    <templateVersions>
+        <content>You are a translation expert and you can translate sentenses from any language to English. 
+
+Feedback in any local language is: {!$Input:Survey.Feedback_Local__c}
+
+Read the feedback in the given language and convert into english. Do not add any unnecessary wording. Just perform true translation. 
+</content>
+        <inputs>
+            <apiName>Survey</apiName>
+            <definition>SOBJECT://Survey__c</definition>
+            <masterLabel>Survey</masterLabel>
+            <referenceName>Input:Survey</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>AaPcv5c2YDr44tqdpv/lin0AfKSGjY6oH3HHdPQbwXA=_1</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>
